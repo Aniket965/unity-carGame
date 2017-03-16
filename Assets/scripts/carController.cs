@@ -13,12 +13,27 @@ public class carController : MonoBehaviour {
 	
 	
 	void Update () {
-        postion.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
-        postion.x =  Mathf.Clamp(postion.x, -MaxPostion, MaxPostion);
-        
-        transform.position = postion;
+
+        ACMMOVE();
+       
 	
 	}
+    void ACMMOVE()
+    {
+        float x = Input.acceleration.x;
+        if (x >= 0)
+        {
+            postion.x += x * carSpeed * Time.deltaTime*8;
+            postion.x = Mathf.Clamp(postion.x, -MaxPostion, MaxPostion);
+            transform.position = postion;
+        }
+        else {
+            postion.x += x * carSpeed * Time.deltaTime*8;
+            postion.x = Mathf.Clamp(postion.x, -MaxPostion, MaxPostion);
+            transform.position = postion;
+        }
+ 
+    }
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "enemy")
