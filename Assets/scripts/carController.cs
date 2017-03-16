@@ -19,4 +19,10 @@ public class carController : MonoBehaviour {
         transform.position = postion;
 	
 	}
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "enemy")
+            Destroy(gameObject);
+
+    }
 }

@@ -15,8 +15,7 @@ public class carSpawnner : MonoBehaviour {
 
 	void Update () {
         timer -= Time.deltaTime;
-        if (timer < 0)
-        {
+        if (timer < 0) {
             Vector3 carpos = new Vector3(Random.Range(-maxPos, maxPos), transform.position.y, transform.position.z);
             Instantiate(Car, carpos, transform.rotation);
             timer = delayedtimer;
