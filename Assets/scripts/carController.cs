@@ -3,13 +3,20 @@ using System.Collections;
 
 public class carController : MonoBehaviour {
 
-	
+    public float carSpeed;
+    public float MaxPostion;
+
+    Vector3 postion;
 	void Start () {
-	
+      postion = transform.position;
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
+        postion.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
+        postion.x =  Mathf.Clamp(postion.x, -MaxPostion, MaxPostion);
+        
+        transform.position = postion;
 	
 	}
 }
