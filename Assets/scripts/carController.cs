@@ -5,7 +5,7 @@ public class carController : MonoBehaviour {
 
     public float carSpeed;
     public float MaxPostion;
-
+   public uimanager ui;
     Vector3 postion;
 	void Start () {
       postion = transform.position;
@@ -22,7 +22,10 @@ public class carController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "enemy")
+        {
+            ui.GameOver();
             Destroy(gameObject);
 
+        }
     }
 }
