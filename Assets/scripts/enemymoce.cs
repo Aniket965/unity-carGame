@@ -9,6 +9,6 @@ public class enemymoce : MonoBehaviour {
 	}
 
 	void Update () {
-        transform.Translate(new Vector3(0,1,0));
+        transform.Translate(new Vector3(0,1*speed*Time.deltaTime,0));
 	}
 }
